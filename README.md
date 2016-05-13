@@ -1,2 +1,2 @@
 # jquery-seed
-A jQuery tiny seed project.
+A tiny jQuery seed project.
