@@ -1,0 +1,72 @@
+// @font-face {
+//     font-family: "MY_PROJECT-icons";
+//     src: url('../../../../icons/MY_PROJECT-icons.eot');
+//     src: url('../../../../icons/MY_PROJECT-icons.eot?#iefix') format('eot'),
+//         url('../../../../icons/MY_PROJECT-icons.woff2') format('woff2'),
+//         url('../../../../icons/MY_PROJECT-icons.woff') format('woff'),
+//         url('../../../../icons/MY_PROJECT-icons.ttf') format('truetype'),
+//         url('../../../../icons/MY_PROJECT-icons.svg#MY_PROJECT-icons') format('svg');
+// }
+
+.MY_PROJECT-icn-base-pseudo {
+    font-family: "MY_PROJECT-icons";
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+    font-style: normal;
+    font-variant: normal;
+    font-weight: normal;
+    // speak: none; // only necessary if not using the private unicode range (firstGlyph option)
+    text-decoration: none;
+    text-transform: none;
+}
+
+.MY_PROJECT-icn-char(@filename) {
+    @add: "\E001";
+    @alert: "\E002";
+    @backwards: "\E003";
+    @brochure: "\E004";
+    @calendar: "\E005";
+    @change: "\E006";
+    @close: "\E007";
+    @co2: "\E008";
+    @loader: "\E009";
+
+    content: @@filename;
+}
+
+.MY_PROJECT-icn(@filename, @insert: before) {
+    @pseudo-selector: ~":@{insert}";
+
+    &@{pseudo-selector} {
+        &:extend(.MY_PROJECT-icn-base-pseudo);
+        .MY_PROJECT-icn-char(@filename);
+    }
+}
+
+.MY_PROJECT-icn-add {
+    .MY_PROJECT-icn(add);
+}
+.MY_PROJECT-icn-alert {
+    .MY_PROJECT-icn(alert);
+}
+.MY_PROJECT-icn-backwards {
+    .MY_PROJECT-icn(backwards);
+}
+.MY_PROJECT-icn-brochure {
+    .MY_PROJECT-icn(brochure);
+}
+.MY_PROJECT-icn-calendar {
+    .MY_PROJECT-icn(calendar);
+}
+.MY_PROJECT-icn-change {
+    .MY_PROJECT-icn(change);
+}
+.MY_PROJECT-icn-close {
+    .MY_PROJECT-icn(close);
+}
+.MY_PROJECT-icn-co2 {
+    .MY_PROJECT-icn(co2);
+}
+.MY_PROJECT-icn-loader {
+    .MY_PROJECT-icn(loader);
+}

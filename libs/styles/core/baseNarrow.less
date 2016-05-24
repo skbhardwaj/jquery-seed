@@ -1,0 +1,113 @@
+// File to hold generic styles
+// No component specific styles should be in this file.
+
+.MY_PROJECT {
+    // Force scrollbars, as most pages will be scrollable anyway.
+    // Fixes UI bugs when pages become scrollable. OSX/Touch browsers
+    // unaffected as scrollbar sits on top of content
+    overflow-y: scroll;
+
+    // Fix font size on mobile device rotate
+    -webkit-text-size-adjust: 100%;
+    -ms-text-size-adjust: 100%;
+}
+
+/**
+ * 1. This is necessary due to a `feature` in iOS Safari that forces the iframe
+ *    wider than the page (and ignores any widths set on the iframe) when it
+ *    thinks the content of the iframe is wider. More detailed explanation and
+ *    examples here: http://bit.ly/1CYT0c9. With this fix the reported issue will
+ *    not occur when any of our pages are loaded into an iframe on iOS (issue
+ *    discovered on iOS 8) because although our site is responsive, it
+ *    seems to think some pages need to be wider than they do (e.g. model pages).
+ */
+.MY_PROJECT-body {
+    .font-family-body();
+    margin: 0;
+    padding: 0;
+    background-color: @MY_PROJECT-white;
+    color: @MY_PROJECT-secondary;
+    line-height: 1;
+    min-width: 320px; /* 1 */
+    width: 100%; /* 1 */
+
+    *,
+    *:focus {
+        -moz-box-sizing: border-box;
+        -webkit-box-sizing: border-box;
+        box-sizing: border-box;
+        outline: 0;
+    }
+
+    &:after {
+        content: "narrow";
+        display: none;
+    }
+
+    sub {
+        vertical-align: sub;
+        font-size: smaller;
+    }
+
+    button[disabled]:hover {
+        cursor: no-drop;
+    }
+
+    a {
+        color: @MY_PROJECT-primary;
+        text-decoration: none;
+    }
+}
+
+.MY_PROJECT-container-fluid {
+    width: 100%;
+    .clearfix();
+}
+
+.MY_PROJECT-container {
+    position: relative;
+    max-width: @max-page-width;
+    margin: 0 auto;
+    .clearfix();
+}
+
+.MY_PROJECT-header {
+    &:extend(.MY_PROJECT-container-fluid);
+    background-color: @MY_PROJECT-grey-2;
+    min-height: 60px;
+    position: relative;
+    z-index: 10;
+}
+
+.MY_PROJECT-footer {
+    &:extend(.MY_PROJECT-container-fluid);
+    background-color: @MY_PROJECT-grey-2;
+    padding: 0;
+}
+
+.MY_PROJECT-main {
+   background-color: @MY_PROJECT-grey-1;
+   min-height: 200px;
+   overflow: hidden;
+   padding: 30px 30px 0;
+}
+
+.MY_PROJECT-content {
+    &:extend(.MY_PROJECT-container-fluid);
+}
+
+.MY_PROJECT-component {
+    outline: 1px dashed @MY_PROJECT-grey;
+    border: 1px dotted @MY_PROJECT-red;
+}
+
+// Transition definitions for base site content elements.
+@baseContentElementsAnimationDuration: 0.75s;
+@baseContentElementsAnimationEasing: cubic-bezier(1.000, 0.000, 0.000, 1.000);
+
+.MY_PROJECT-main,
+.MY_PROJECT-footer,
+.MY_PROJECT-header,
+.MY_PROJECT-hero-banner-features {
+    .transition-transform(@baseContentElementsAnimationDuration @baseContentElementsAnimationEasing);
+}
