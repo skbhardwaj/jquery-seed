@@ -1,11 +1,23 @@
 # Build and Release Folders
-bin/
-bin-debug/
-bin-release/
+/build_settings/
+/dist/**/*.*
+/node_modules/
+npm-debug.log
+*.sublime-project
+*.sublime-workspace
 
 # Other files and folders
-.settings/
+.vlt
+.DS_Store
+*.dir
+*.tmp
+**/quickstart/*
 
 # Project files, i.e. `.project`, `.actionScriptProperties` and `.flexProperties`
-# should NOT be excluded as they contain compiler settings and other important
-# information for Eclipse / Flash Builder.
+.project
+.settings
+.classpath
+*.html.binary
+target/
+**/styles/generated/
+styles.css

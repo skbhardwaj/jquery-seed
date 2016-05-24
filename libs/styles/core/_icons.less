@@ -1,0 +1,49 @@
+
+.icon-base() {
+    //by default, svg element will be exact size of character, often height and width restrictions will be in place and we want to fit to available space
+    background-size: contain;
+    background-repeat: no-repeat;
+    // by default, align so the bottom of the icon is at the baseline of the font
+    background-position: 0 100%;
+    //to allow icons to appear e.g. in the middle of a paragraph
+    display: inline-block;
+    font-weight: normal;
+    font-style: normal;
+    //matched by width set by grunt generation per svg, allows specific height to be set by setting font size and width will scale accordingly
+    height: 1em;
+    line-height: 1;
+    -moz-osx-font-smoothing: grayscale;
+    speak:none;
+    text-decoration:inherit;
+    text-transform:none;
+    text-rendering:optimizeLegibility;
+    // vertical align to the bottom so that icon font and SVGs are rendered in the same location
+    vertical-align: bottom;
+    -webkit-font-smoothing: antialiased;
+    width: 1em;
+}
+
+[class^="MY_PROJECT-icn-"]:before,
+[class*=" MY_PROJECT-icn-"]:before,
+[class^="MY_PROJECT-icn-"],
+[class*=" MY_PROJECT-icn-"]{
+    .icon-base();
+    content: '';
+}
+
+[class^="MY_PROJECT-icn-"]:hover:before,
+[class*=" MY_PROJECT-icn-"]:hover:before,
+[class^="MY_PROJECT-icn-"]:hover,
+[class*=" MY_PROJECT-icn-"]:hover{
+    background-size: contain;
+}
+
+[class^="MY_PROJECT-icn"],
+[class*=" MY_PROJECT-icn"] {
+    .MY_PROJECT-icn-alt {
+        .visually-hidden();
+    }
+}
+
+@import "icons/icons.webfont.less";
+@import "icons/icons.data.svg.less";

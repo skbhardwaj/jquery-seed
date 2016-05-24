@@ -1,0 +1,46 @@
+// File to hold generic styles
+// No component specific styles should be in this file.
+
+.MY_PROJECT-body {
+    min-width: 0; // reset, as narrow sets a min-width of 100%
+    width: 100%;
+    overflow: visible; // reset
+
+    &:after {
+        content: "wide";
+    }
+}
+
+.MY_PROJECT-main {
+    display: block;
+    min-height: 400px;
+    padding: 50px 50px 0;
+    // apply bottom margin to all immediate children of the main content area
+    > .MY_PROJECT-component,
+    > .parbase {
+        margin-bottom: 2rem;
+    }
+
+}
+
+.MY_PROJECT-main,
+.MY_PROJECT-footer {
+    max-width: @max-page-width;
+    margin: 0 auto;
+}
+
+.MY_PROJECT-header {
+    max-width: @max-page-width;
+    margin: 0 auto;
+}
+
+/**
+ * 1. Needs background so `position: fixed` content is not
+ *    visible behind footer on small screens
+ */
+.MY_PROJECT-footer {
+    .clearfix();
+    position: relative;
+    min-height: 40px;
+    z-index: (1);
+}

@@ -1,0 +1,313 @@
+// Typography
+//
+// Base typography classes and mixins
+//
+
+.font-reset() {
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+}
+
+.font-antialiasing() {
+    // This mixin is used for most fonts on the site, due to having light text on a dark background. We may want to stop using this mixin when we switch to dark text on a white background.
+    //
+    // "on Mac OS X, when ... you set light text on a dark background, you get a fairly ugly effect where the text becomes overly bold, spilling out of its lines. Switching away from subpixel rendering to antialiasing for light text on dark backgrounds makes it look lighter, countering the bolding effect"
+    // http://usabilitypost.com/2012/11/05/stop-fixing-font-smoothing/
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.font-heading-base() {
+    .font-reset();
+    .font-family-heading();
+    display: block; // needed for non-standard elements
+    color: @MY_PROJECT-secondary;
+
+    span, p {
+        display: block;
+        padding-top: 10px;
+    }
+}
+
+.font-body-base() {
+    .font-reset();
+    .font-family-body();
+    color: @MY_PROJECT-secondary;
+}
+
+// Headings
+//
+// Styleguide 1.1 page 32
+
+
+.font-h1() {
+    .font-family-heading();
+    .font-size-h1();
+    letter-spacing: -0.05em;
+}
+
+.font-h2() {
+    .font-family-heading();
+    .font-size-h2();
+    letter-spacing: -0.05em;
+}
+
+.font-h3() {
+    .font-family-heading();
+    .font-size-h3();
+    letter-spacing: -0.05em;
+}
+
+.font-h4() {
+    .font-family-heading();
+    .font-size-h4();
+    letter-spacing: -0.05em;
+}
+
+.font-h5() {
+    .font-family-heading();
+    .font-size-h5();
+    letter-spacing: -0.05em;
+}
+
+.font-h6() {
+    .font-family-heading();
+    .font-size-h6();
+    letter-spacing: -0.05em;
+}
+
+.font-h7() {
+    .font-family-heading();
+    .font-size-h7();
+    letter-spacing: -0.025em;
+}
+
+.font-h8() {
+    .font-family-heading();
+    .font-size-h8();
+    letter-spacing: -0.025em;
+}
+
+.font-h9() {
+    .font-family-heading();
+    .font-size-h9();
+    letter-spacing: -0.025em;
+}
+
+.font-h10() {
+    .font-family-heading();
+    .font-size-h10();
+    letter-spacing: -0.025em;
+}
+
+
+
+// Text button font style
+
+// .font-button() has a wide equivalent using .font-size(1.6, 1.6)
+.font-button() {
+    .font-family-heading();
+    .font-size-button();
+    letter-spacing: -0.05em;
+}
+
+.font-button-large() {
+    .font-family-heading();
+    .font-size-button-large();
+    letter-spacing: -0.05em;
+}
+
+
+.font-text-small() {
+    .font-family-heading();
+    .font-size-h7();
+    letter-spacing: -0.025em;
+}
+
+
+.h1() {
+    .font-heading-base();
+    .font-h1();
+    margin-bottom: 25px;
+}
+.h2() {
+    .font-heading-base();
+    .font-h2();
+    margin-bottom: 25px;
+}
+.h3() {
+    .font-heading-base();
+    .font-h3();
+    margin-bottom: 20px;
+}
+.h4() {
+    .font-heading-base();
+    .font-h4();
+    margin-bottom: 15px;
+}
+.h5() {
+    .font-heading-base();
+    .font-h5();
+    margin-bottom: 15px;
+}
+.h6() {
+    .font-heading-base();
+    .font-h6();
+    margin-bottom: 15px;
+}
+.h7() {
+    .font-heading-base();
+    .font-h7();
+    margin-bottom: 15px;
+}
+.h8() {
+    .font-heading-base();
+    .font-h8();
+    margin-bottom: 15px;
+}
+.h9() {
+    .font-heading-base();
+    .font-h9();
+    margin-bottom: 15px;
+}
+.h10() {
+    .font-heading-base();
+    .font-h10();
+    margin-bottom: 15px;
+}
+
+
+// Sub-headings
+
+
+.font-subheading-1() {
+    .font-heading-base();
+    .font-size-subheading-1();
+    color: @MY_PROJECT-grey;
+    letter-spacing: -0.05em;
+    margin-bottom: 25px;
+}
+
+.font-subheading-2() {
+    .font-heading-base();
+    .font-size-subheading-2();
+    color: @MY_PROJECT-grey;
+    letter-spacing: -0.05em;
+    margin-bottom: 25px;
+}
+
+
+// Body content
+.font-body-1() {
+    .font-body-base();
+    .font-size-body-1();
+    letter-spacing: 0;
+}
+
+.font-body-2() {
+    .font-body-base();
+    .font-size-body-2();
+    letter-spacing: 0.025em;
+}
+
+.font-body-3() {
+    .font-body-base();
+    .font-size-body-3();
+    letter-spacing: 0.025em;
+}
+
+
+// Lists
+.MY_PROJECT-ul {
+    display: block;
+    padding: 10px 0 0 0;
+}
+
+.MY_PROJECT-li,
+.MY_PROJECT-li-nocontent {
+    .font-body-base();
+    .font-size(@h5NarrowFontSize, @h5NarrowLineHeight);
+    display: list-item;
+    position: relative;
+    letter-spacing: -0.02em;
+    color: @MY_PROJECT-secondary;
+    margin: 0 0 30px;
+    padding: 0 0 0 15px;
+}
+
+.MY_PROJECT-li {
+    &:before {
+        position: absolute;
+        left: 0;
+        top: 0;
+        content: '-';
+    }
+}
+
+/*
+    General helper classes that will inevitably be required
+*/
+.MY_PROJECT-font-uppercase() {
+    text-transform: uppercase;
+}
+
+.MY_PROJECT-font-lowercase() {
+    text-transform: none;
+}
+
+/*
+    Links
+*/
+.MY_PROJECT-link {
+    text-decoration: none;
+
+    &:hover, &:focus, &:active {
+
+    }
+}
+
+/*
+    Alignment
+ */
+.align-left() {
+    text-align: left;
+}
+
+.align-right() {
+    text-align: right;
+}
+
+/*
+    Accessible typography classes
+ */
+
+.MY_PROJECT-body-1 {
+    .font-body-1();
+}
+
+.MY_PROJECT-body-2 {
+    .font-body-2();
+}
+
+.MY_PROJECT-body-3 {
+    .font-body-3();
+}
+
+// This is a bit mad, but it prevents classes which dictate style (md-align-left) getting into the HTML
+.MY_PROJECT-alignment-1 {
+    .align-left();
+}
+.MY_PROJECT-alignment-2 {
+    .align-right();
+}
+
+.MY_PROJECT-body a {
+    color: @MY_PROJECT-secondary;
+}
+
+.font-smoothing {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
