@@ -28,19 +28,9 @@ var gulp = require('gulp'),
     svgmin = require('gulp-svgmin'),
     jscs = require('gulp-jscs'),
     jshint = require('gulp-jshint'),
-    jsdoc = require('gulp-jsdoc3');
+    jsdoc = require('gulp-jsdoc3'),
+    babel = require('gulp-babel');
 
-// JS concate, minify, sourcemap
-gulp.task('script', function() {
-    return gulp.src(SETUP.SCRIPTS_TO_INCLUDE)
-        //.pipe(sourcemaps.init())
-        .pipe(concat('main.js'))
-        //.pipe(uglify())
-        .pipe(rename({suffix: '.min'}))
-        //.pipe(sourcemaps.write())
-        .pipe(gulp.dest('dist/'))
-        .pipe(connect.reload());
-});
 
 // // Check JavaScript code style with jscs
 // gulp.task('jscs', function() {
@@ -97,6 +87,19 @@ gulp.task('style', function() {
         .pipe(less())
         .pipe(concat('main.css'))
         //.pipe(cssmin())
+        .pipe(rename({suffix: '.min'}))
+        //.pipe(sourcemaps.write())
+        .pipe(gulp.dest('dist/'))
+        .pipe(connect.reload());
+});
+
+// JS concate, minify, sourcemap
+gulp.task('script', function() {
+    return gulp.src(SETUP.SCRIPTS_TO_INCLUDE)
+        //.pipe(sourcemaps.init())
+        .pipe(concat('main.js'))
+        //.pipe(babel())
+        //.pipe(uglify())
         .pipe(rename({suffix: '.min'}))
         //.pipe(sourcemaps.write())
         .pipe(gulp.dest('dist/'))
